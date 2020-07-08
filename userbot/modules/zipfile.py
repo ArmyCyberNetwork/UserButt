@@ -83,11 +83,11 @@ async def addzip(add):
                 reply_message,
                 ZIP_DOWNLOAD_DIRECTORY,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, mone, c_time, "`Trying to download`")
+                    progress(d, t, mone, c_time, "`Downloading file`")
                 )
             )
             success = str(downloaded_file_name).replace("./zips/", "")
-            await add.edit(f"`{success} Successfully added to list`")
+            await add.edit(f"`{success}` Successfully added to list")
         except Exception as e:  # pylint:disable=C0103,W0703
             await mone.edit(str(e))
             return
@@ -98,13 +98,14 @@ async def upload_zip(up):
     if not os.path.isdir(ZIP_DOWNLOAD_DIRECTORY):
         await up.edit(f"`Files not found`")
         return
-    await up.edit(f"`Uploading.......`")
+    await up.edit("`Zipping file...`")
     input_str = up.pattern_match.group(1)
     curdate = today.strftime("%m%d%y")
     title = str(input_str) if input_str else "zipfile" + f"{curdate}"
     zipf = zipfile.ZipFile(title + '.zip', 'w', zipfile.ZIP_DEFLATED)
     zipdir(ZIP_DOWNLOAD_DIRECTORY, zipf)
     zipf.close()
+    await up.edit("`Uploading...`")
     await bot.send_file(
         up.chat_id,
         title + ".zip",
@@ -136,10 +137,10 @@ CMD_HELP.update({
     "zipfile":
     "`.compress` [optional: <reply to file >]"
     "\nUsage: make files to zip."
-    "\n`.addzip` <reply to file >"
+    "\n\n`.addzip` <reply to file >"
     "\nUsage: add files to zip list."
-    "\n`.upzip` [optional: <zip title>]"
+    "\n\n`.upzip` [optional: <zip title>]"
     "\nUsage: upload zip list."
-    "\n`.rmzip` [optional: <zip title>]"
+    "\n\n`.rmzip` [optional: <zip title>]"
     "\nUsage: clear zip list."
 })
