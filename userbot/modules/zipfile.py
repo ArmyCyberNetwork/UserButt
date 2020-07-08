@@ -103,9 +103,10 @@ async def upload_zip(up):
     curdate = today.strftime("%m%d%y")
     title = str(input_str) if input_str else "zipfile" + f"{curdate}"
     zipf = zipfile.ZipFile(title + '.zip', 'w', zipfile.ZIP_DEFLATED)
+    dir = os.listdir(ZIP_DOWNLOAD_DIRECTORY)
     if input_str:
-        for i in os.listdir(ZIP_DOWNLOAD_DIRECTORY):
-            zipdir(i, zipf)
+        for i in dir:
+            zipdir(dir, zipf)
     else:
         zipdir(ZIP_DOWNLOAD_DIRECTORY, zipf)
     zipf.close()
