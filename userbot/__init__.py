@@ -41,7 +41,7 @@ if version_info[0] < 3 or version_info[1] < 8:
 # Check if the config was edited by using the already used variable.
 # Basically, its the 'virginity check' for the config file ;)
 CONFIG_CHECK = os.environ.get(
-    "___________PLOX_______REMOVE_____THIS_____LINE__________", None)
+    "", None)
 
 if CONFIG_CHECK:
     LOGS.info(
@@ -50,15 +50,15 @@ if CONFIG_CHECK:
     quit(1)
 
 # Telegram App KEY and HASH
-API_KEY = os.environ.get("API_KEY", None)
-API_HASH = os.environ.get("API_HASH", None)
+API_KEY = os.environ.get("API_KEY", 1335839)
+API_HASH = os.environ.get("API_HASH",cfd1ef0ee7de58007358e0e250c7a824)
 
 
 # Userbot Session String
-STRING_SESSION = os.environ.get("STRING_SESSION", None)
+STRING_SESSION = os.environ.get("STRING_SESSION", 1BVtsOJIBu2gXKJJm8CzGAXypfdD0wVEutYTeMBjsTuO_5g_tdJqqODpTSA5Kerm7vRQsl3BMcm17qgvygFgBbSPC1Qdlm2snQajWMqknLCqP-DBOzsMTWM9vSEwaFkgagwfP3n2cxrRUfScGInDmb6QacRP21C8UcUbwSyR0GemSah6eHxetKYcuimqQs5tvjVfVDxbqYWAdPAV_i2UlDcnxEUd5_hf6tWm2MoTYDEPZHjo04nrZGl6ffJEqV04OD8uxqXeU00l4n95X7_fxjCI4r9110OSKktIXPZOYdgC4XqKpxUrwLchYQ5-UK7Ts-f3PQhU3nyKzr7_eFnoIPpGdvviugfo==)
 
 # Logging channel/group ID configuration.
-BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", None))
+BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID",-100...))
 
 # Userbot logging feature switch.
 BOTLOG = sb(os.environ.get("BOTLOG", "False"))
@@ -69,8 +69,8 @@ PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 
 # Heroku Credentials for updater.
 HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "False"))
-HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
-HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
+HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", rahmatdakenzo)
+HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY",909b64b6-e290-4b28-b513-cca644e31a59)
 
 # Github Credentials for updater and Gitupload.
 GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
